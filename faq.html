@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Bright background */
+            color: #333; /* Dark text for contrast */
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background-color: #ffffff; /* Bright card background */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fallIn 0.5s forwards;
+            animation-delay: calc(0.5s * var(--order));
+        }
+
+        @keyframes fallIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            cursor: pointer;
+            background-color: #f7f7f7;
+            border-bottom: 2px solid #0056b3;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-header i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            display: none;
+            background-color: #ffffff;
+            padding: 15px;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .card-body ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .card-body ul li {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: pointFall 0.5s forwards;
+        }
+
+        @keyframes pointFall {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-body ul li:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+
+        .card-body ul li:nth-child(even) {
+            animation-delay: 0.6s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .navbar .title {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .title i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .navbar .btn {
+            background-color: #f7f7f7;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .navbar .btn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">
+            <i class="fas fa-bolt"></i> Vidyuth
+        </div>
+        <button class="btn" onclick="goToDashboard()">Go to Dashboard</button>
+    </div>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="card" style="--order:1;">
+            <div class="card-header" onclick="toggleAnswer(1)">
+                <i class="fas fa-question-circle"></i>
+                What is the process for paying my electricity bill?
+            </div>
+            <div class="card-body" id="answer1">
+                <ul>
+                    <li>You can pay your electricity bill online through our website or mobile app.</li>
+                    <li>Log in to your account, navigate to the "Bills and Payments" section, and select the outstanding bill to make a payment.</li>
+                    <li>You can use various payment methods, including credit/debit cards, net banking, or digital wallets.</li>
+                    <li>Ensure you receive a payment confirmation after completing the transaction.</li>
+                    <li>For offline payment options, visit any of our authorized payment centers.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:2;">
+            <div class="card-header" onclick="toggleAnswer(2)">
+                <i class="fas fa-question-circle"></i>
+                How can I view my electricity usage?
+            </div>
+            <div class="card-body" id="answer2">
+                <ul>
+                    <li>You can view your electricity usage by logging into your account on our website or mobile app.</li>
+                    <li>Navigate to the "Usage" section to see detailed information about your consumption patterns.</li>
+                    <li>This section provides insights into your peak, mid-peak, off-peak, and super off-peak hour usage.</li>
+                    <li>Understanding your usage can help you manage and reduce your electricity consumption.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:3;">
+            <div class="card-header" onclick="toggleAnswer(3)">
+                <i class="fas fa-question-circle"></i>
+                How can I update my contact information?
+            </div>
+            <div class="card-body" id="answer3">
+                <ul>
+                    <li>To update your contact information, log in to your account on our website or mobile app.</li>
+                    <li>Go to the "Profile" section, where you can edit your phone number, email address, and other contact details.</li>
+                    <li>Make sure to save the changes to ensure your information is up to date.</li>
+                    <li>Keeping your contact information current ensures you receive important notifications about your account and service.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:4;">
+            <div class="card-header" onclick="toggleAnswer(4)">
+                <i class="fas fa-question-circle"></i>
+                What should I do if I have a billing discrepancy?
+            </div>
+            <div class="card-body" id="answer4">
+                <ul>
+                    <li>If you notice any discrepancies in your bill, please contact our customer service immediately.</li>
+                    <li>You can reach us via phone, email, or through the support section on our website.</li>
+                    <li>Provide details of the discrepancy and any supporting documents to help us resolve the issue promptly.</li>
+                    <li>We will investigate the matter and provide you with a resolution as quickly as possible.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:5;">
+            <div class="card-header" onclick="toggleAnswer(5)">
+                <i class="fas fa-question-circle"></i>
+                How can I reduce my electricity bill?
+            </div>
+            <div class="card-body" id="answer5">
+                <ul>
+                    <li>There are several ways to reduce your electricity bill, including:</li>
+                    <li>Using energy-efficient appliances and lighting.</li>
+                    <li>Unplugging devices when not in use to prevent phantom loads.</li>
+                    <li>Setting your thermostat to an energy-saving temperature.</li>
+                    <li>Maximizing natural light during the day to reduce reliance on artificial lighting.</li>
+                    <li>Regularly maintaining your appliances to ensure they operate efficiently.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById('answer' + answerId);
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                var points = answer.querySelectorAll('li');
+                points.forEach(function(point, index) {
+                    point.style.animationDelay = (index * 0.2) + 's';
+                });
+            } else {
+                answer.style.display = 'none';
+            }
+        }
+
+        function goToDashboard() {
+            // Redirect to the dashboard page
+            window.location.href = 'dashboard.jsp';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

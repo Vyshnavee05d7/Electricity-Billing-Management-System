@@ -1,0 +1,11 @@
+body {
+    padding-top: 50px;
+}
+
+.container {
+    max-width: 600px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}

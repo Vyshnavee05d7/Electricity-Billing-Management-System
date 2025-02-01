@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Tech Electric Field</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background settings */
+        body {
+            background-color: #0f1b29; /* Dark background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /* Navbar settings */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #0056b3; /* Background for Vidyuth */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .navbar .title {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .title i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Background container */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* Electric Wave styles */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.2), transparent);
+            animation: wave-animation 10s linear infinite;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: rotate(0deg) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: rotate(180deg) scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Electric Pulse styles */
+        .pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 1), rgba(0, 204, 255, 0.1));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+            animation: pulse-animation 3s infinite alternate;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% {
+                transform: scale(0.5);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        /* Dynamic Circuit styles */
+        .circuit {
+            position: absolute;
+            stroke: rgba(0, 204, 255, 0.6); /* Electric blue */
+            stroke-width: 2;
+            fill: none;
+            animation: circuit-animation 5s linear infinite;
+        }
+
+        @keyframes circuit-animation {
+            0% {
+                stroke-dasharray: 0, 1000;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dasharray: 1000, 1000;
+                stroke-dashoffset: -1000;
+            }
+        }
+
+        /* Line styles */
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background-color: rgba(0, 204, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+            animation: line-animation 8s linear infinite;
+        }
+
+        @keyframes line-animation {
+            0% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-50vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0.5;
+            }
+        }
+
+        /* Positioning elements */
+        .wave:nth-child(1) { top: 10%; left: 10%; }
+        .wave:nth-child(2) { top: 30%; left: 30%; }
+        .pulse:nth-child(3) { top: 20%; left: 70%; }
+        .pulse:nth-child(4) { top: 60%; left: 40%; }
+        .circuit:nth-child(5) { top: 50%; left: 50%; width: 40%; height: 40%; }
+        .line:nth-child(6) { left: 15%; }
+        .line:nth-child(7) { left: 85%; }
+        .line:nth-child(8) { left: 50%; }
+
+        /* Content container */
+        .content {
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px; /* Added margin to avoid overlap with the navbar */
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .content h1 span {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            animation-delay: calc(0.1s * var(--delay));
+            margin-right: 5px; /* Add space between characters */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .arrow:hover {
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">
+            <i class="fas fa-bolt"></i> Vidyuth
+        </div>
+    </div>
+    <div class="background">
+        <!-- Electric Waves -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <!-- Pulsing Orbs -->
+        <div class="pulse"></div>
+        <div class="pulse"></div>
+        <!-- Dynamic Circuit -->
+        <svg class="circuit" viewBox="0 0 100 100">
+            <path d="M10,10 H90 V30 H50 V50 H90 V70 H10 Z" />
+        </svg>
+        <!-- Moving Lines -->
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="content">
+        <h1>
+            <span style="--delay:1;">W</span>
+            <span style="--delay:2;">e</span>
+            <span style="--delay:3;">l</span>
+            <span style="--delay:4;">c</span>
+            <span style="--delay:5;">o</span>
+            <span style="--delay:6;">m</span>
+            <span style="--delay:7;">e</span>
+            <span style="--delay:8;"> </span>
+            <span style="--delay:9;">t</span>
+            <span style="--delay:10;">o</span>
+            <span style="--delay:11;"> </span>
+            <span style="--delay:12;">H</span>
+            <span style="--delay:13;">i</span>
+            <span style="--delay:14;">g</span>
+            <span style="--delay:15;">h</span>
+            <span style="--delay:16;">-</span>
+            <span style="--delay:17;">T</span>
+            <span style="--delay:18;">e</span>
+            <span style="--delay:19;">c</span>
+            <span style="--delay:20;">h</span>
+            <span style="--delay:21;"> </span>
+            <span style="--delay:22;">E</span>
+            <span style="--delay:23;">l</span>
+            <span style="--delay:24;">e</span>
+            <span style="--delay:25;">c</span>
+            <span style="--delay:26;">t</span>
+            <span style="--delay:27;">r</span>
+            <span style="--delay:28;">i</span>
+            <span style="--delay:29;">c</span>
+            <span style="--delay:30;"> </span>
+            <span style="--delay:31;">F</span>
+            <span style="--delay:32;">i</span>
+            <span style="--delay:33;">e</span>
+            <span style="--delay:34;">l</span>
+            <span style="--delay:35;">d</span>
+        </h1>
+        <p>This page features a dynamic and electrifying background with innovative animations.</p>
+        <div class="arrow" onclick="window.location.href='next_page.html'">&#8594;</div>
+    </div>
+</body>
+</html>

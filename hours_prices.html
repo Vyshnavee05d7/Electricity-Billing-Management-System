@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Rates - Peak Hours, Off-Peak Hours, and More</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: #f8f9fa;
+            color: #333;
+            padding-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.5s ease;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            transition: background-color 0.5s ease;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            margin: 0;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand svg {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .navbar .btn {
+            color: white;
+            border-color: white;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .navbar .btn:hover {
+            color: #007bff;
+            background-color: white;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 900px;
+            transition: margin-top 0.5s ease;
+        }
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background: #007bff;
+            color: #fff;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        .card-body {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+            padding: 20px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .info-section {
+            margin-top: 20px;
+            transition: margin-top 0.3s ease;
+        }
+        .info-section h4 {
+            color: #007bff;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        .icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            color: #0056b3;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        footer a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#fff"><path d="M32 0l8.4 24H45L28 64l7.6-24H19L32 0z"/></svg>
+            Vidyuth
+        </a>
+        <a href="dashboard.jsp" class="btn btn-outline-light">Go to Dashboard</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="mb-4 text-center">Electricity Rates and Hours</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-clock icon"></i> Rates by Time of Day
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Hours</th>
+                                <th>Price per kWh</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Peak Hours</td>
+                                <td>8:00 AM - 10:00 PM</td>
+                                <td>$0.15</td>
+                            </tr>
+                            <tr>
+                                <td>Off-Peak Hours</td>
+                                <td>10:00 PM - 8:00 AM</td>
+                                <td>$0.10</td>
+                            </tr>
+                            <tr>
+                                <td>Mid-Peak Hours</td>
+                                <td>6:00 AM - 8:00 AM, 10:00 PM - 12:00 AM</td>
+                                <td>$0.12</td>
+                            </tr>
+                            <tr>
+                                <td>Super Off-Peak Hours</td>
+                                <td>12:00 AM - 6:00 AM</td>
+                                <td>$0.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>Additional Information</h4>
+            <p><i class="fas fa-sun icon"></i><strong>Peak Hours:</strong> These are the hours when electricity demand is highest. Prices are generally higher during these times to manage the load and encourage energy savings.</p>
+            <p><i class="fas fa-moon icon"></i><strong>Off-Peak Hours:</strong> These hours typically have lower electricity demand. Prices are lower to promote usage during these times and reduce strain on the power grid.</p>
+            <p><i class="fas fa-cloud-sun icon"></i><strong>Mid-Peak Hours:</strong> This period includes transitional times when electricity demand starts to rise or fall. Prices are moderate to reflect the changing demand levels.</p>
+            <p><i class="fas fa-star icon"></i><strong>Super Off-Peak Hours:</strong> These are hours with the lowest demand. Prices are the lowest to incentivize energy use during these times and maximize grid efficiency.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Vidyut. All Rights Reserved.</p>
+        <p><a href="dashboard.jsp">Go to Dashboard</a> | <a href="contact.html">Contact Us</a></p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

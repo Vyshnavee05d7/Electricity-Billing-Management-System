@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Saving Tips</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Bright background */
+            color: #333; /* Dark text for contrast */
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background-color: #ffffff; /* Bright card background */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fallIn 0.5s forwards;
+            animation-delay: calc(0.5s * var(--order));
+        }
+
+        @keyframes fallIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            cursor: pointer;
+            background-color: #f7f7f7;
+            border-bottom: 2px solid #0056b3;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-header i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            display: none;
+            background-color: #ffffff;
+            padding: 15px;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .card-body ul {
+            list-style-type: disc; /* Set the bullet points */
+            padding-left: 20px;
+        }
+
+        .card-body ul li {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: pointFall 0.5s forwards;
+        }
+
+        @keyframes pointFall {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-body ul li:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+
+        .card-body ul li:nth-child(even) {
+            animation-delay: 0.6s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .navbar .title {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .title i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .navbar .btn {
+            background-color: #f7f7f7;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .navbar .btn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">
+            <i class="fas fa-bolt"></i> Vidyuth
+        </div>
+        <button class="btn" onclick="goToDashboard()">Go to Dashboard</button>
+    </div>
+    <div class="container">
+        <h2>Electricity Saving Tips</h2>
+        <div class="card" style="--order:1;">
+            <div class="card-header" onclick="toggleAnswer(1)">
+                <i class="fas fa-plug"></i>
+                Use Energy-Efficient Appliances
+            </div>
+            <div class="card-body" id="answer1">
+                <ul>
+                    <li>Look for the ENERGY STAR label when purchasing new appliances.</li>
+                    <li>These products meet energy efficiency guidelines set by the U.S. Environmental Protection Agency and the Department of Energy.</li>
+                    <li>Using energy-efficient appliances can significantly reduce your energy consumption and save you money on your electricity bill over time.</li>
+                    <li>Common energy-efficient appliances include refrigerators, washers, dryers, and air conditioners.</li>
+                    <li>They use advanced technologies to reduce energy use without sacrificing performance or convenience.</li>
+                    <li>Maintaining your appliances regularly, such as cleaning the coils of your refrigerator or replacing air filters in your HVAC system, can ensure they run efficiently and last longer.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:2;">
+            <div class="card-header" onclick="toggleAnswer(2)">
+                <i class="fas fa-power-off"></i>
+                Unplug Devices When Not in Use
+            </div>
+            <div class="card-body" id="answer2">
+                <ul>
+                    <li>Many electronics use power even when turned off, a phenomenon known as "phantom load."</li>
+                    <li>This occurs because the device is still drawing power to maintain functions like clock displays or remote control readiness.</li>
+                    <li>Unplug chargers, TVs, and other devices when not in use, or use a power strip to easily turn off multiple devices at once.</li>
+                    <li>This simple action can reduce unnecessary energy consumption and lower your electricity bill.</li>
+                    <li>Consider investing in smart power strips that automatically cut off power to devices in standby mode, further simplifying the process of managing phantom loads.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:3;">
+            <div class="card-header" onclick="toggleAnswer(3)">
+                <i class="fas fa-lightbulb"></i>
+                Switch to LED Bulbs
+            </div>
+            <div class="card-body" id="answer3">
+                <ul>
+                    <li>LED bulbs use up to 90% less energy than traditional incandescent bulbs and last much longer.</li>
+                    <li>They are available in a variety of colors and brightness levels, making them a versatile and energy-efficient lighting option for your home.</li>
+                    <li>Switching to LED bulbs can lead to substantial energy savings and lower electricity bills.</li>
+                    <li>They are also more durable and less likely to break, reducing replacement costs and waste.</li>
+                    <li>In addition to standard bulbs, LED options are available for most lighting fixtures, including recessed lighting, under-cabinet lighting, and outdoor fixtures, allowing you to maximize energy savings throughout your home.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:4;">
+            <div class="card-header" onclick="toggleAnswer(4)">
+                <i class="fas fa-thermometer-half"></i>
+                Use a Programmable Thermostat
+            </div>
+            <div class="card-body" id="answer4">
+                <ul>
+                    <li>A programmable thermostat allows you to set specific temperatures for different times of the day.</li>
+                    <li>You can lower the temperature when you're asleep or away from home, and have it automatically adjust to a comfortable level when you return.</li>
+                    <li>This can help you save energy and reduce your heating and cooling costs without sacrificing comfort.</li>
+                    <li>For example, during the winter, you can set the thermostat to lower the temperature at night and when the house is empty, and raise it just before you wake up or return home.</li>
+                    <li>Many modern thermostats are also "smart," meaning they can learn your schedule and preferences, be controlled remotely via smartphone, and provide energy usage reports to help you identify further savings opportunities.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="--order:5;">
+            <div class="card-header" onclick="toggleAnswer(5)">
+                <i class="fas fa-sun"></i>
+                Utilize Natural Light
+            </div>
+            <div class="card-body" id="answer5">
+                <ul>
+                    <li>During the day, open curtains and blinds to make the most of natural light instead of relying on artificial lighting.</li>
+                    <li>This not only reduces your electricity usage but also creates a more pleasant and inviting atmosphere in your home.</li>
+                    <li>Positioning workspaces and living areas to maximize daylight can further enhance the benefits of natural lighting.</li>
+                    <li>Consider using light-colored or reflective surfaces in your interior design to amplify the natural light and brighten rooms.</li>
+                    <li>Using skylights or solar tubes can increase the amount of natural light in your home, reducing the need for artificial lighting and improving overall energy efficiency.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById('answer' + answerId);
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                var points = answer.querySelectorAll('li');
+                points.forEach(function(point, index) {
+                    point.style.animationDelay = (index * 0.2) + 's';
+                });
+            } else {
+                answer.style.display = 'none';
+            }
+        }
+
+        function goToDashboard() {
+            // Redirect to the dashboard page
+            window.location.href = 'dashboard.jsp';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vidyuth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #b8d9eb, #e4d9f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background-animation span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: animate 20s linear infinite;
+            bottom: -150px;
+        }
+
+        .background-animation span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-delay: 0s; }
+        .background-animation span:nth-child(2) { left: 20%; width: 40px; height: 40px; animation-delay: 2s; }
+        .background-animation span:nth-child(3) { left: 25%; width: 50px; height: 50px; animation-delay: 4s; }
+        .background-animation span:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; }
+        .background-animation span:nth-child(5) { left: 70%; width: 100px; height: 100px; animation-delay: 2.5s; }
+        .background-animation span:nth-child(6) { left: 80%; width: 40px; height: 40px; animation-delay: 3.5s; }
+        .background-animation span:nth-child(7) { left: 90%; width: 60px; height: 60px; animation-delay: 5.5s; }
+        .background-animation span:nth-child(8) { left: 50%; width: 50px; height: 50px; animation-delay: 1s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 10px;
+            background: #1c92d2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            z-index: 10;
+            animation: slideIn 2s ease-in-out;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: white;
+            padding-left: 20px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 100px auto;
+        }
+
+        .typing-animation {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            animation: typing 4s steps(40, end) 1 normal both, blink-caret .75s step-end infinite;
+            display: inline-block; /* Ensure it does not take more space */
+            width: auto; /* Adjust width to the content */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        .login-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .login-option {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .admin-login {
+            background: #003f5c;
+            color: white;
+        }
+
+        .user-login {
+            background: #005f73;
+            color: white;
+        }
+
+        .login-option i {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .login-option h2 {
+            font-size: 1.5em;
+        }
+
+        .login-option:hover {
+            transform: translateY(-10px);
+        }
+
+        .admin-login:hover { background: #002f3c; color: white; }
+        .user-login:hover { background: #004d61; color: white; }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="navbar">
+        <h1>Welcome to Vidyuth</h1>
+    </div>
+
+    <div class="container">
+        <div class="typing-animation" id="typing"></div>
+        <div class="login-section" id="login-section">
+            <div class="login-option admin-login" id="admin-btn">
+                <i class="fas fa-user-shield"></i>
+                <h2>Admin Login</h2>
+            </div>
+            <div class="login-option user-login" id="user-btn">
+                <i class="fas fa-user"></i>
+                <h2>User Login</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const typingElement = document.getElementById('typing');
+        const loginSection = document.getElementById('login-section');
+
+        const text = 'Are you an Admin or User?';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            } else {
+                typingElement.style.borderRight = 'none';
+                setTimeout(() => {
+                    loginSection.style.display = 'flex';
+                    setTimeout(() => {
+                        loginSection.style.opacity = 1;
+                        loginSection.style.transform = 'translateY(0)';
+                    }, 100);
+                }, 500); // Delay before showing the buttons
+            }
+        }
+
+        typeWriter();
+
+        document.getElementById('admin-btn').addEventListener('click', () => {
+            window.location.href = 'admin_login.html';
+        });
+
+        document.getElementById('user-btn').addEventListener('click', () => {
+            window.location.href = 'welcome.html';
+        });
+    </script>
+</body>
+</html>

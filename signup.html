@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #d5a6f1, #f4c2c2, #a2c2e4);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: backgroundMove 30s infinite alternate;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background: linear-gradient(135deg, #d5a6f1, #f4c2c2, #a2c2e4);
+            }
+            100% {
+                background: linear-gradient(135deg, #e3a0f5, #f7d1d1, #b3d4f4);
+            }
+        }
+
+        .container {
+            max-width: 400px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .container h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 1.75rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .container:hover h2 {
+            color: #007bff;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input {
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            padding: 0.75rem 2.5rem;
+            width: 100%;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-group input:focus {
+            background-color: #ffffff;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            outline: none;
+            transform: scale(1.03);
+        }
+
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-group input:focus + i {
+            color: #0056b3;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            padding: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004494;
+            transform: scale(1.05);
+        }
+
+        .btn-primary i {
+            margin-right: 8px;
+        }
+
+        .form-error {
+            color: #dc3545;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+        <form action="submit.jsp" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number" required>
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" id="service_number" name="service_number" placeholder="Service Number" required>
+                <i class="fas fa-id-card"></i>
+            </div>
+            <div class="form-error" id="formError"></div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            let errorMessage = "";
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const phoneNumber = document.getElementById('phone_number').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const serviceNumber = document.getElementById('service_number').value.trim();
+
+            if (username.length < 4 || username.length > 20) {
+                errorMessage += "Username must be between 4 and 20 characters long.<br>";
+            }
+            if (password.length < 6 || password.length > 20) {
+                errorMessage += "Password must be between 6 and 20 characters long.<br>";
+            }
+            if (!/^\d{10}$/.test(phoneNumber)) {
+                errorMessage += "Phone number must be exactly 10 digits.<br>";
+            }
+            if (!/^\d{12}$/.test(serviceNumber)) {
+                errorMessage += "Service number must be 12 digits.<br>";
+            }
+            if (errorMessage) {
+                document.getElementById('formError').innerHTML = errorMessage;
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

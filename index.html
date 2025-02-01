@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High-Tech Electric Field</title>
+<style>
+  /* Reset default styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Background settings */
+  body {
+    background-color: #0f1b29; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+
+  /* Background container */
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  /* Electric Wave styles */
+  .wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 204, 255, 0.2), transparent);
+    animation: wave-animation 10s linear infinite;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg) scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: rotate(180deg) scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      opacity: 0.5;
+    }
+  }
+
+  /* Electric Pulse styles */
+  .pulse {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(0, 204, 255, 1), rgba(0, 204, 255, 0.1));
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+    animation: pulse-animation 3s infinite alternate;
+  }
+
+  @keyframes pulse-animation {
+    0%, 100% {
+      transform: scale(0.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+
+  /* Dynamic Circuit styles */
+  .circuit {
+    position: absolute;
+    stroke: rgba(0, 204, 255, 0.6); /* Electric blue */
+    stroke-width: 2;
+    fill: none;
+    animation: circuit-animation 5s linear infinite;
+  }
+
+  @keyframes circuit-animation {
+    0% {
+      stroke-dasharray: 0, 1000;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: 1000, 1000;
+      stroke-dashoffset: -1000;
+    }
+  }
+
+  /* Line styles */
+  .line {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background-color: rgba(0, 204, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+    animation: line-animation 8s linear infinite;
+  }
+
+  @keyframes line-animation {
+    0% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(-50vh);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh);
+      opacity: 0.5;
+    }
+  }
+
+  /* Positioning elements */
+  .wave:nth-child(1) { top: 10%; left: 10%; }
+  .wave:nth-child(2) { top: 30%; left: 30%; }
+  .pulse:nth-child(3) { top: 20%; left: 70%; }
+  .pulse:nth-child(4) { top: 60%; left: 40%; }
+  .circuit:nth-child(5) { top: 50%; left: 50%; width: 40%; height: 40%; }
+  .line:nth-child(6) { left: 15%; }
+  .line:nth-child(7) { left: 85%; }
+  .line:nth-child(8) { left: 50%; }
+
+  /* Content container */
+  .content {
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+
+  .content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .content .word {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  /* Logo styles */
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    color: #FFD700; /* Gold color */
+  }
+
+  .logo svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .arrow {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .arrow:hover {
+    transform: translateX(10px);
+  }
+</style>
+</head>
+<body>
+<div class="background">
+  <!-- Electric Waves -->
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <!-- Pulsing Orbs -->
+  <div class="pulse"></div>
+  <div class="pulse"></div>
+  <!-- Dynamic Circuit -->
+  <svg class="circuit" viewBox="0 0 100 100">
+    <path d="M10,10 H90 V30 H50 V50 H90 V70 H10 Z" />
+  </svg>
+  <!-- Moving Lines -->
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+<div class="logo">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 2L7 12h6l-4 10L17 12H11z" />
+  </svg>
+  Vidyuth
+</div>
+<div class="content">
+  <h1>
+    <span class="word" style="animation-delay: 0.1s;">Welcome</span>
+    <span class="word" style="animation-delay: 0.2s;">to</span>
+    <span class="word" style="animation-delay: 0.3s;">Vidyuth</span>
+    <span class="word" style="animation-delay: 0.4s;">!!</span>
+  </h1>
+  <p>Where Smart Billing Meets Bright Savings.</p>
+  <div class="arrow" onclick="location.href='adus.html';">
+    &#8594; <!-- Unicode for right arrow -->
+  </div>
+</div>
+</body>
+</html>
