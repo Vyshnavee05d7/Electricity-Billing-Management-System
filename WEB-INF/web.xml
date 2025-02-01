@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+<servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/ProfileServlet</url-pattern>
+    </servlet-mapping>
+
+<servlet>
+        <servlet-name>PayBillServlet</servlet-name>
+        <servlet-class>PayBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PayBillServlet</servlet-name>
+        <url-pattern>/PayBillServlet</url-pattern>
+    </servlet-mapping>
+<servlet>
+        <servlet-name>ViewBillServlet</servlet-name>
+        <servlet-class>ViewBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewBillServlet</servlet-name>
+        <url-pattern>/ViewBillServlet</url-pattern>
+    </servlet-mapping>
+<servlet>
+    <servlet-name>PostFeedbackServlet</servlet-name>
+    <servlet-class>PostFeedbackServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>PostFeedbackServlet</servlet-name>
+    <url-pattern>/PostFeedbackServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+    <servlet-name>ProcessPaymentServlet</servlet-name>
+    <servlet-class>ProcessPaymentServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ProcessPaymentServlet</servlet-name>
+    <url-pattern>/ProcessPaymentServlet</url-pattern>
+</servlet-mapping>
+
+
+	
+
+	
+
+    
+</web-app>
